@@ -1,12 +1,12 @@
 function Register() {
     function formatarCPF(event) {
-        let cpf = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
-        
+        let cpf = event.target.value.replace(/\D/g, ''); // apenas dígitos
+
         if (cpf.length > 11) {
-            cpf = cpf.slice(0, 11); // Limita a 11 dígitos
+            cpf = cpf.slice(0, 11); // máx. 11
         }
-        
-        // Formata: 000.000.000-00
+
+        // formato CPF
         if (cpf.length > 9) {
             cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
         } else if (cpf.length > 6) {
@@ -46,7 +46,7 @@ function Register() {
         .then(function (res) { 
             console.log(res);
             alert("Golpe cadastrado com sucesso!");
-            event.target.reset(); // Limpa o formulário
+            event.target.reset(); // reset
         })
         .catch(function (res) { 
             console.log(res);
@@ -108,7 +108,8 @@ function Register() {
                 placeholder="000.000.000-00"
                 maxLength="14"
                 onInput={formatarCPF}
-                pattern="[0-9]*"
+                pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
+                title="Informe o CPF no formato 000.000.000-00"
                 inputMode="numeric"
                 required
                 />
@@ -116,13 +117,15 @@ function Register() {
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Meio de Contato</label>
                 <select
                 className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5"
-                name="meioContato">
-                <option value="" disabled selected>Meio de Contato</option>
-                <option value="SMS">SMS</option>
+                name="meioContato"
+                defaultValue=""
+                required>
+                <option value="" disabled>Meio de Contato</option>
                 <option value="Telefone">Telefone</option>
-                <option value="Whatsapp">WhatsApp</option>
+                <option value="WhatsApp">WhatsApp</option>
                 <option value="Email">Email</option>
-                <option value="Outro">Outro</option>
+                <option value="SMS">SMS</option>
+                <option value="Outros">Outros</option>
                 </select>
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Descrição do Golpe</label>
