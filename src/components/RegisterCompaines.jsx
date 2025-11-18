@@ -15,7 +15,7 @@ function RegisterCompaines() {
 			return
 		}
 
-		console.log('Login attempt', { username })
+		localStorage.setItem('empresaUsuario', username)
 		navigate('/empresas')
 	}
 
@@ -39,9 +39,30 @@ function RegisterCompaines() {
 			return
 		}
 
-		console.log('Register attempt', { username, cnpj })
-		alert('Conta criada com sucesso (simulação). Faça login.')
-		setShowRegister(false)
+
+		fetch('http://localhost:8080/empresas', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ usuario: username, cnpj, password })
+		})
+			.then(async (res) => {
+				if (!res.ok) {
+					const txt = await res.text()
+					throw new Error(txt || 'Falha ao criar empresa')
+				}
+				return res.json()
+			})
+			.then(() => {
+				alert('Conta criada com sucesso. Faça login.')
+				setShowRegister(false)
+			})
+			.catch((err) => {
+				console.error(err)
+				alert('Erro ao criar conta: ' + err.message)
+			})
 	}
 
 	return (

@@ -3,7 +3,7 @@ import Navbar from "./Navbar.jsx"
 import Home from "./components/Home.jsx"
 import Info from "./components/Info.jsx"
 import Register from "./components/Register.jsx"
-import Compaines from "./components/Compaines.jsx"
+import EmpresaDashboard from "./components/EmpresaDashboard.jsx"
 import RegisterCompaines from "./components/RegisterCompaines.jsx"
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/info" element={<Info />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/empresas" element={<Compaines />} />
+      <Route path="/empresas" element={<EmpresaDashboard />} />
       <Route path="/rempresas" element={<RegisterCompaines />} />
     </Routes>
     </BrowserRouter>
