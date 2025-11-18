@@ -16,7 +16,7 @@ function RegisterCompaines() {
 		}
 
 		localStorage.setItem('empresaUsuario', username)
-		navigate('/empresas')
+		navigate('/empresa')
 	}
 
 	function handleRegister(e) {
@@ -40,7 +40,7 @@ function RegisterCompaines() {
 		}
 
 
-		fetch('http://localhost:8080/empresas', {
+		fetch('http://localhost:8080/empresa', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -74,11 +74,11 @@ function RegisterCompaines() {
 				>
 					<h2 className="text-2xl text-[#0b3d91] font-bold text-center mb-2">Login - Empresas</h2>
 
-					<label className="text-base text-[#2e2e2e] font-bold">Usuário</label>
+					<label className="text-base text-[#2e2e2e] font-bold">Empresa</label>
 					<input
 						name="username"
 						type="text"
-						placeholder="Seu usuário"
+						placeholder="Sua Empresa"
 						className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
 						required
 					/>
@@ -115,11 +115,11 @@ function RegisterCompaines() {
 				>
 					<h2 className="text-2xl text-[#0b3d91] font-bold text-center mb-2">Registrar - Empresas</h2>
 
-					<label className="text-base text-[#2e2e2e] font-bold">Usuário</label>
+					<label className="text-base text-[#2e2e2e] font-bold">Empresa</label>
 					<input
 						name="username"
 						type="text"
-						placeholder="Seu usuário"
+						placeholder="Sua Empresa"
 						className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
 						required
 					/>
