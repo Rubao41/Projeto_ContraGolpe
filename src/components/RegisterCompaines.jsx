@@ -66,11 +66,11 @@ function RegisterCompaines() {
 	}
 
 	return (
-		<div className="flex items-center justify-center min-h-screen py-12">
+		<div className="flex items-center justify-center min-h-screen py-10 px-4">
 			{!showRegister ? (
 				<form
 					onSubmit={handleLogin}
-					className="flex flex-col gap-4 p-8 rounded-3xl bg-[#eaeaea] w-full max-w-[600px]"
+					className="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-[#eaeaea] w-full max-w-[560px] shadow-sm"
 				>
 					<h2 className="text-2xl text-[#0b3d91] font-bold text-center mb-2">Login - Empresas</h2>
 
@@ -111,7 +111,7 @@ function RegisterCompaines() {
 			) : (
 				<form
 					onSubmit={handleRegister}
-					className="flex flex-col gap-4 p-8 rounded-3xl bg-[#eaeaea] w-full max-w-[600px]"
+					className="flex flex-col gap-4 p-6 md:p-8 rounded-3xl bg-[#eaeaea] w-full max-w-[560px] shadow-sm"
 				>
 					<h2 className="text-2xl text-[#0b3d91] font-bold text-center mb-2">Registrar - Empresas</h2>
 

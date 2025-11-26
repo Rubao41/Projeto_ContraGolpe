@@ -42,48 +42,48 @@ function EmpresaDashboard() {
   }, [page, size])
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold text-[#0b3d91] mb-4">Denúncias da sua empresa</h1>
-      {loading && <p>Carregando...</p>}
-      {erro && <p className="text-red-600">{erro}</p>}
+    <div className="p-4 md:p-6 max-w-6xl mx-auto">
+      <h1 className="text-xl md:text-2xl font-bold text-[#0b3d91] mb-4">Denúncias da sua empresa</h1>
+      {loading && <p className="text-sm">Carregando...</p>}
+      {erro && <p className="text-red-600 text-sm md:text-base">{erro}</p>}
       {!loading && !erro && (
         denuncias.length === 0 ? (
-          <p>Nenhuma denúncia encontrada para sua empresa.</p>
+          <p className="text-sm">Nenhuma denúncia encontrada para sua empresa.</p>
         ) : (
-          <div className="overflow-x-auto">
-            <div className="flex items-center justify-between mb-2">
-              <div className="text-sm">Total: <span className="font-semibold">{total}</span></div>
-              <div className="flex items-center gap-2">
-                <button className="px-2 py-1 rounded bg-[#eaeaea] disabled:opacity-50" disabled={page === 0} onClick={() => setPage((p) => Math.max(0, p - 1))}>Anterior</button>
-                <span className="text-sm">Página {page + 1}</span>
-                <button className="px-2 py-1 rounded bg-[#eaeaea] disabled:opacity-50" disabled={(page + 1) * size >= total} onClick={() => setPage((p) => p + 1)}>Próxima</button>
-                <select className="ml-2 border rounded px-2 py-1" value={size} onChange={(e) => { setPage(0); setSize(parseInt(e.target.value, 10)) }}>
+          <div className="overflow-x-auto rounded-lg border border-[#e0e0e0] bg-white">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 p-3 border-b">
+              <div className="text-xs md:text-sm">Total: <span className="font-semibold">{total}</span></div>
+              <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm">
+                <button className="px-2 py-1 rounded bg-[#f5f5f5] hover:bg-[#e6e6e6] disabled:opacity-50" disabled={page === 0} onClick={() => setPage((p) => Math.max(0, p - 1))}>Anterior</button>
+                <span>Página {page + 1}</span>
+                <button className="px-2 py-1 rounded bg-[#f5f5f5] hover:bg-[#e6e6e6] disabled:opacity-50" disabled={(page + 1) * size >= total} onClick={() => setPage((p) => p + 1)}>Próxima</button>
+                <select className="border rounded px-2 py-1" value={size} onChange={(e) => { setPage(0); setSize(parseInt(e.target.value, 10)) }}>
                   <option value={5}>5</option>
                   <option value={10}>10</option>
                   <option value={20}>20</option>
                 </select>
               </div>
             </div>
-            <table className="min-w-full text-left border-collapse">
+            <table className="min-w-full text-left text-xs md:text-sm">
               <thead>
-                <tr className="bg-[#eaeaea]">
-                  <th className="p-2">Nome</th>
-                  <th className="p-2">Cidade</th>
-                  <th className="p-2">Data</th>
-                  <th className="p-2">Meio de Contato</th>
-                  <th className="p-2">Empresa</th>
-                  <th className="p-2">Descrição</th>
+                <tr className="bg-[#f2f2f2]">
+                  <th className="p-2 font-semibold">Nome</th>
+                  <th className="p-2 font-semibold hidden sm:table-cell">Cidade</th>
+                  <th className="p-2 font-semibold">Data</th>
+                  <th className="p-2 font-semibold hidden md:table-cell">Meio</th>
+                  <th className="p-2 font-semibold hidden lg:table-cell">Empresa</th>
+                  <th className="p-2 font-semibold">Descrição</th>
                 </tr>
               </thead>
               <tbody>
                 {denuncias.map((d) => (
-                  <tr key={d.id} className="border-b">
-                    <td className="p-2">{d.nome}</td>
-                    <td className="p-2">{d.cidade}</td>
-                    <td className="p-2">{d.createdAt ? new Date(d.createdAt).toLocaleString() : ''}</td>
-                    <td className="p-2">{d.meioContato || d.meioDeContato || d.meio_contato || ''}</td>
-                    <td className="p-2">{d.empresa}</td>
-                    <td className="p-2 whitespace-pre-wrap">{d.descricao}</td>
+                  <tr key={d.id} className="border-b last:border-none">
+                    <td className="p-2 align-top">{d.nome}</td>
+                    <td className="p-2 align-top hidden sm:table-cell">{d.cidade}</td>
+                    <td className="p-2 align-top whitespace-nowrap">{d.createdAt ? new Date(d.createdAt).toLocaleDateString() : ''}</td>
+                    <td className="p-2 align-top hidden md:table-cell">{d.meioContato || d.meioDeContato || d.meio_contato || ''}</td>
+                    <td className="p-2 align-top hidden lg:table-cell">{d.empresa}</td>
+                    <td className="p-2 align-top w-[40%] md:w-auto whitespace-pre-wrap break-words">{d.descricao}</td>
                   </tr>
                 ))}
               </tbody>
