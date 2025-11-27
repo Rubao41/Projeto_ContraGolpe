@@ -56,17 +56,17 @@ function Register() {
 
     return(
         <div 
-        className="flex items-center flex-col pt-[25px]">
+        className="flex items-center flex-col pt-6 px-4">
             <form 
-            className="flex flex-col gap-[15px] p-[30px] rounded-3xl bg-[#eaeaea] max-w-[50%] w-[400px] mb-[20px]"
+            className="flex flex-col gap-4 p-6 rounded-3xl bg-[#eaeaea] w-full max-w-[480px] mb-6 shadow-sm"
             onSubmit={cadastrarGolpe}>
                 <h1
-                className="text-[#00008B] text-[30px] text-center mb-[10px]">
+                className="text-[#00008B] text-2xl md:text-[30px] text-center mb-2">
                     Cadastre o Golpe</h1>
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Nome</label>
                 <input
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3 outline-0"
                 type="text"
                 name="nome"
                 placeholder="Seu Nome"
@@ -75,7 +75,7 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Cidade</label>
                 <input
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3 outline-0"
                 type="text"
                 name="cidade"
                 placeholder="Sua Cidade"
@@ -84,7 +84,7 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Empresa Utilizada</label>
                 <input
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3 outline-0"
                 type="text"
                 name="empresa"
                 placeholder="Empresa Utilizada"
@@ -93,7 +93,7 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Email ou Telefone</label>
                 <input
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3 outline-0"
                 type="text"
                 name="emailOutelefone"
                 placeholder="Seu Email ou Telefone"
@@ -102,7 +102,7 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">CPF</label>
                 <input
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5 outline-0"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3 outline-0"
                 type="text"
                 name="cpf"
                 placeholder="000.000.000-00"
@@ -116,7 +116,7 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Meio de Contato</label>
                 <select
-                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base pl-2.5"
+                className="border-0 rounded-xl h-10 bg-[#f2f2f2] text-[#2e2e2e] text-base px-3"
                 name="meioContato"
                 defaultValue=""
                 required>
@@ -130,13 +130,13 @@ function Register() {
                 
                 <label className="text-sm text-[#2e2e2e] font-bold -mb-[10px]">Descrição do Golpe</label>
                 <textarea 
-                className="border-0 rounded-lg bg-[#f2f2f2] text-[#2e2e2e] text-base p-[10px] outline-0"
+                className="border-0 rounded-lg bg-[#f2f2f2] text-[#2e2e2e] text-base p-3 outline-0 resize-y"
                 name="descricao"
                 placeholder="Conte-nos como o golpe aconteceu"
                 rows="5"
                 />
                 <button
-                className="rounded-xl bg-[#00008B] h-[40px] border-0 text-base font-bold text-[#f2f2f2] w-full max-w[400px] mx-auto hover:bg-[#4682B4] active:bg-[#4682B4]"
+                className="rounded-xl bg-[#00008B] h-11 border-0 text-base font-bold text-[#f2f2f2] w-full mx-auto hover:bg-[#4682B4] active:bg-[#4682B4] transition-colors"
                 type="submit">Cadastrar</button>
             </form>
         </div>
